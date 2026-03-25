@@ -1,4 +1,5 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import { baseUrl } from "../utils/utils"
 
 // 📦 Fetch all public shops (with pagination)
 export const fetchShops = async (url = null) => {
@@ -7,7 +8,7 @@ export const fetchShops = async (url = null) => {
     if (!token) throw new Error("No authentication token found");
 
     const endpoint =
-      url || "http://103.184.0.121:8002/api/Shops/owner/";
+      url || `${baseUrl}/api/Shops/owner/`;
 
     const res = await fetch(endpoint, {
       method: "GET",

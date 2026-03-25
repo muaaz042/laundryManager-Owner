@@ -1,6 +1,6 @@
 // services/dashboardService.js
 import AsyncStorage from "@react-native-async-storage/async-storage";
-const baseUrl = "http://103.184.0.121:8002";
+import { baseUrl } from "../utils/utils"
 
 export const fetchManagerStats = async () => {
   try {

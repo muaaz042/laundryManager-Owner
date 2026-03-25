@@ -1,14 +1,13 @@
 // services/dashboardService.js
 import AsyncStorage from "@react-native-async-storage/async-storage";
-
-const BASE_URL = "http://103.184.0.121:8002";
+import { baseUrl } from "../utils/utils"
 
 export const fetchOwnerStats = async () => {
   try {
     const token = await AsyncStorage.getItem("authToken");
     if (!token) throw new Error("No authentication token found");
 
-    const response = await fetch(`${BASE_URL}/api/dashboard/stats-shopowner/`, {
+    const response = await fetch(`${baseUrl}/api/dashboard/stats-shopowner/`, {
       method: "GET",
       headers: {
         Authorization: `Bearer ${token}`,

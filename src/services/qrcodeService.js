@@ -1,4 +1,4 @@
-const baseUrl = "http://103.184.0.121:8002";
+import { baseUrl } from "../utils/utils"
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export async function verifyToken(qrData) {

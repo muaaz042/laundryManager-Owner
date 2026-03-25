@@ -1,8 +1,6 @@
 import RNPrint from 'react-native-print';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-
-// Keep your BASE_URL and buildQuery function exactly as they were...
-const BASE_URL = "http://103.184.0.121:8002";
+import { baseUrl } from "../utils/utils"
 
 function buildQuery(params = {}) {
   const esc = encodeURIComponent;
@@ -18,7 +16,7 @@ export async function fetchReports(params = {}) {
   if (!token) throw new Error("No authentication token found");
 
   const query = buildQuery(params);
-  const url = `${BASE_URL}/api/reports/orders${query}`;
+  const url = `${baseUrl}/api/reports/orders${query}`;
   const res = await fetch(url, {
     method: "GET",
     headers: {
